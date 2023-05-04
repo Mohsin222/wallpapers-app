@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class ScrollProvider extends ChangeNotifier{
     bool showBackToTopButton = false;
 
-    
+    TextEditingController textEditingController = TextEditingController();
 
   // scroll controller
   late ScrollController scrollController;
@@ -26,6 +26,7 @@ ScrollProvider(){
   @override
   void dispose() {
     scrollController.dispose(); // dispose the controller
+    textEditingController.dispose();
     super.dispose();
   }
 

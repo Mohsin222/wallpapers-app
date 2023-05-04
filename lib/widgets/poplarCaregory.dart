@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:provider/provider.dart';
+import 'package:wallpapers_app/provider/wallpapers_controller.dart';
 
 class PopularCategoryWidget extends StatelessWidget {
   const PopularCategoryWidget({super.key});
@@ -36,25 +38,31 @@ class PopularCategoryWidget extends StatelessWidget {
             scrollDirection: Axis.horizontal,
             itemCount: categoryText.length,
             itemBuilder: (context,index){
-            return      Container(
-              width: 100,
-              constraints: BoxConstraints(minWidth: 60,
-              maxWidth: MediaQuery.of(context).size.width/2
-              ),
-              padding: EdgeInsets.all(10),
-              margin: EdgeInsets.symmetric(vertical: 4,horizontal: 7),
-                  
-                  decoration: BoxDecoration(color: Colors.red[400],
-                  
-                  borderRadius: BorderRadius.circular(20),
-                  image: DecorationImage(image: NetworkImage(categoryImages[index]),fit: BoxFit.cover),
-         
+            return      InkWell(
+              onTap: (){
+                final wallpaperProvider= Provider.of<WallpapersProvider>(context,listen:false);
+                wallpaperProvider.fetchWalls(categoryText[index]);
+              },
+              child: Container(
+                width: 100,
+                constraints: BoxConstraints(minWidth: 60,
+                maxWidth: MediaQuery.of(context).size.width/2
+                ),
+                padding: EdgeInsets.all(10),
+                margin: EdgeInsets.symmetric(vertical: 4,horizontal: 7),
+                    
+                    decoration: BoxDecoration(color: Colors.red[400],
+                    
+                    borderRadius: BorderRadius.circular(20),
+                    image: DecorationImage(image: NetworkImage(categoryImages[index]),fit: BoxFit.cover),
+                     
+                    ),
+                    // width: MediaQuery.of(context).size.width/2,
+                    alignment: Alignment.center,
+               
+                    child: Text(categoryText[index],textAlign: TextAlign.center,style: Theme.of(context).textTheme.bodySmall,),
                   ),
-                  // width: MediaQuery.of(context).size.width/2,
-                  alignment: Alignment.center,
-             
-                  child: Text(categoryText[index],textAlign: TextAlign.center,style: Theme.of(context).textTheme.bodySmall,),
-                );
+            );
            });
   }
 }

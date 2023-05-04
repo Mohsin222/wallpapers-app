@@ -13,9 +13,11 @@ import '../services/fetch_wall.dart';
 import '../widgets/poplarCaregory.dart';
 import '../widgets/wallgrid.dart';
 
-class WallScreen extends StatelessWidget {
+class  WallScreen extends StatelessWidget {
 
-  final gapBetweenWidget = SizedBox(height: 10,);
+  final gapBetweenWidget =const SizedBox(height: 10,);
+
+  const WallScreen({super.key});
     
 
   @override
@@ -26,7 +28,7 @@ class WallScreen extends StatelessWidget {
       appBar: AppBar(leading: IconButton(onPressed: ()async{
 
 
-      },icon: Icon(Icons.add),),),
+      },icon:const Icon(Icons.add),),),
 body: 
  Consumer<ScrollProvider>(
   
@@ -36,30 +38,34 @@ body:
    primary: false,
    shrinkWrap: true,
         children: [
-          Padding(padding: EdgeInsets.all(10),
+          Padding(padding:const EdgeInsets.all(10),
       child: TextFormField(
-      
+      controller: value.textEditingController,
       decoration: InputDecoration(
+      suffixIcon: IconButton(icon:const Icon(Icons.search),onPressed: (){
+        final wallprovider = Provider.of<WallpapersProvider>(context,listen: false);
+        wallprovider.fetchWalls(value.textEditingController.text.trim());
+      },),
           hintText:'Search',
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(15)),
             focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(15),
-            borderSide: BorderSide(color: Colors.greenAccent, width: 1.0,),
+            borderSide:const BorderSide(color: Colors.greenAccent, width: 1.0,),
         ),
       ),
       ),
       ),
      
      
-       SizedBox(height: 10,),
+   const    SizedBox(height: 10,),
      
        Container(
-        padding: EdgeInsets.symmetric(horizontal: 10),
+        padding:const EdgeInsets.symmetric(horizontal: 10),
         child: Text('CATEGORIES',style: Theme.of(context).textTheme.headlineMedium,),
        ),
       gapBetweenWidget,
      
-     Container(
+   const SizedBox(
       height: 90,
       
        child: PopularCategoryWidget(),
@@ -68,7 +74,7 @@ body:
      ),
      gapBetweenWidget,
      Container(
-        padding: EdgeInsets.symmetric(horizontal: 10),
+        padding:const EdgeInsets.symmetric(horizontal: 10),
         child: Text('POPULAR',style: Theme.of(context).textTheme.headlineSmall,),
        ),
         gapBetweenWidget,
@@ -80,7 +86,7 @@ body:
    }
  ),
 floatingActionButton: Consumer<ScrollProvider>(builder: (context, value, child){
-  return value.showBackToTopButton ==false ? Container():FloatingActionButton(onPressed: ()=>value.scrollToTop(),child: Icon(Icons.add),);
+  return value.showBackToTopButton ==false ? Container():FloatingActionButton(onPressed: ()=>value.scrollToTop(),child:const Icon(Icons.arrow_upward),);
 },) ,
     );
   }
