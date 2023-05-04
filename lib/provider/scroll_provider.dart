@@ -31,8 +31,9 @@ ScrollProvider(){
 
     // This function is triggered when the user presses the back-to-top button
   void scrollToTop() {
-    scrollController.animateTo(0,
-        duration: const Duration(seconds: 1), curve: Curves.linear);
+    // scrollController.animateTo(0,
+    //     duration: const Duration(seconds: 1), curve: Curves.linear);
+        scrollController.jumpTo(0);
   }
   
 }

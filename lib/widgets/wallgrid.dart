@@ -46,14 +46,15 @@ List<String> images=[
 
       builder: (context, value,child) {
         // final scrollProvider= Provider.of<ScrollProvider>(context,listen:false);
-        return SizedBox(
-          height: (value.wallsList.length<10) ? size.height: (value.wallsList.length> 20) ? size.height*3:(value.wallsList.length>30)? size.height*4 :(value.wallsList.length>30)? size.height*4:(images.length>40)? size.height*4 : (value.wallsList.length>50)? size.height*4:size.height,
+        return value.loading ? SizedBox(
+          // height: (value.wallsList.length<10) ? size.height: (value.wallsList.length> 20) ? size.height*3:(value.wallsList.length>30)? size.height*4 :(value.wallsList.length>30)? size.height*4:(images.length>40)? size.height*4 : (value.wallsList.length>50)? size.height*4:size.height,
+       height: 30000,
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 2),
             child: MasonryGridView.builder(
-              // physics: const NeverScrollableScrollPhysics(),
-        controller: controller,
-            physics: AlwaysScrollableScrollPhysics(parent: NeverScrollableScrollPhysics()),
+              physics: const NeverScrollableScrollPhysics(),
+    
+         
      
               gridDelegate: const SliverSimpleGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2), 
               itemCount: value.wallsList.length,
@@ -65,11 +66,13 @@ List<String> images=[
                   borderRadius: BorderRadius.circular(20),
                   child: InkWell(
                     onTap: (){
-                      // Navigator.push(context, MaterialPageRoute(builder: (context)=>WallDetailScreen(url: value.wallsList[index].title.toString())));
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>WallDetailScreen(url: value.wallsList[index].title.toString())));
                     },
                     child: Image.network(value.wallsList[index].title.toString(),fit: BoxFit.cover,),),),
               );}),
           ),
+        ):Center(
+          child: CircularProgressIndicator(),
         );
       }
     );

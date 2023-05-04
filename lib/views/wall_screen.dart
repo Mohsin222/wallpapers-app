@@ -32,7 +32,7 @@ body:
   
    builder: (context, value,child) {
      return ListView(
-      physics: AlwaysScrollableScrollPhysics(),
+  controller: value.scrollController,
    primary: false,
    shrinkWrap: true,
         children: [

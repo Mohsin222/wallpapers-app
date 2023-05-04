@@ -13,16 +13,18 @@ class WallDetailScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
-      body: Container(decoration: BoxDecoration(image: DecorationImage(image: NetworkImage(url),fit: BoxFit.contain)),
-      
-      child: Column(
-        children: [Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            IconButton(onPressed: ()=>Navigator.pop(context), icon: Icon(Icons.arrow_back,size: 35,))
-          ],
-        )],
-      ),
+      body: SafeArea(
+        child: Container(decoration: BoxDecoration(image: DecorationImage(image: NetworkImage(url),fit: BoxFit.contain)),
+        
+        child: Column(
+          children: [Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              IconButton(onPressed: ()=>Navigator.pop(context), icon: Icon(Icons.arrow_back,size: 35,))
+            ],
+          )],
+        ),
+        ),
       ),
     );
   }
