@@ -9,7 +9,7 @@ class WallpapersProvider extends ChangeNotifier{
 
 
 WallpapersProvider(){
-  fetchWalls('girl');
+  fetchWalls('model');
 }
 
 bool loading =false;
@@ -18,7 +18,7 @@ List<Wallpapers> wallsList=[];
   fetchWalls(String value)async{
     loading=true;
     wallsList=[];
-    notifyListeners();
+    // notifyListeners();
 
     var data =await FetchWalls.fetchWalls(value);
 

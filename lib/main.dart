@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:wallpapers_app/provider/scroll_provider.dart';
 import 'package:wallpapers_app/provider/wallpapers_controller.dart';
 
 
@@ -18,6 +19,7 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
           ChangeNotifierProvider(  create: (_) => WallpapersProvider(),),
+           ChangeNotifierProvider(  create: (_) => ScrollProvider(),),
       ],
       child: MaterialApp(
         title: 'Flutter Demo',

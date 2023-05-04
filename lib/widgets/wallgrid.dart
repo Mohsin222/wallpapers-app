@@ -6,10 +6,11 @@ import 'package:wallpapers_app/provider/wallpapers_controller.dart';
 import 'package:wallpapers_app/views/wall_detailScreen.dart';
 
 import '../models/wallpaper_model.dart';
+import '../provider/scroll_provider.dart';
 
 class WallGrid extends StatelessWidget {
 
-
+final ScrollController controller;
 
 List<String> images=[
   'https://plus.unsplash.com/premium_photo-1672576784701-b960e7cb37d6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60',
@@ -36,33 +37,37 @@ List<String> images=[
   'https://images.unsplash.com/photo-1678737176644-99fdb97795cf?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw1M3x8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60',
   'https://images.unsplash.com/photo-1678711268282-8271e997afa1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw3M3x8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60',
 ];
+
+   WallGrid({super.key, required this.controller});
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return  Consumer<WallpapersProvider>(
 
       builder: (context, value,child) {
+        // final scrollProvider= Provider.of<ScrollProvider>(context,listen:false);
         return SizedBox(
           height: (value.wallsList.length<10) ? size.height: (value.wallsList.length> 20) ? size.height*3:(value.wallsList.length>30)? size.height*4 :(value.wallsList.length>30)? size.height*4:(images.length>40)? size.height*4 : (value.wallsList.length>50)? size.height*4:size.height,
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 2),
             child: MasonryGridView.builder(
-              physics: const NeverScrollableScrollPhysics(),
-        
-              
+              // physics: const NeverScrollableScrollPhysics(),
+        controller: controller,
+            physics: AlwaysScrollableScrollPhysics(parent: NeverScrollableScrollPhysics()),
+     
               gridDelegate: const SliverSimpleGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2), 
               itemCount: value.wallsList.length,
               itemBuilder: (context, index) { 
-        Wallpapers wallpapers = Wallpapers.fromMap(value.wallsList);
+     
                 return Padding(
             padding: const EdgeInsets.all(2),
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(20),
                   child: InkWell(
                     onTap: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>WallDetailScreen(url: wallpapers.title![index])));
+                      // Navigator.push(context, MaterialPageRoute(builder: (context)=>WallDetailScreen(url: value.wallsList[index].title.toString())));
                     },
-                    child: Image.network(images[index]))),
+                    child: Image.network(value.wallsList[index].title.toString(),fit: BoxFit.cover,),),),
               );}),
           ),
         );
