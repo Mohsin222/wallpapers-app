@@ -10,7 +10,7 @@ import '../provider/scroll_provider.dart';
 
 class WallGrid extends StatelessWidget {
 
-final ScrollController controller;
+
 
 List<String> images=[
   'https://plus.unsplash.com/premium_photo-1672576784701-b960e7cb37d6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60',
@@ -38,17 +38,26 @@ List<String> images=[
   'https://images.unsplash.com/photo-1678711268282-8271e997afa1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw3M3x8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60',
 ];
 
-   WallGrid({super.key, required this.controller});
+void add(List a){
+  // its a dumy height check function
+  double height=1000;
+  (a.length <=10) ? height : (a.length <=20)? height*2 : (a.length <=30)? height*3:(a.length <=30)? height*4:(a.length <=40)? height*5:(a.length <=60)? height*6:(a.length <=70)? height*7:(a.length <=80)? height*8:(a.length <=90)? height*9:(a.length <=100)? height*10:20000;
+}
+
+   WallGrid({super.key, });
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return  Consumer<WallpapersProvider>(
 
       builder: (context, value,child) {
+         double height=1000;
+
         // final scrollProvider= Provider.of<ScrollProvider>(context,listen:false);
         return value.loading ==false ?SizedBox(
           // height: (value.wallsList.length<10) ? size.height: (value.wallsList.length> 20) ? size.height*3:(value.wallsList.length>30)? size.height*4 :(value.wallsList.length>30)? size.height*4:(images.length>40)? size.height*4 : (value.wallsList.length>50)? size.height*4:size.height,
-       height: 10000,
+      //  height: 1000,
+   height:     (value.wallsList.length <=10) ? height : (value.wallsList.length <=20)? height*2 : (value.wallsList.length <=30)? height*3:(value.wallsList.length <=30)? height*4:(value.wallsList.length <=40)? height*5:(value.wallsList.length <=60)? height*6:(value.wallsList.length <=70)? height*7:(value.wallsList.length <=80)? height*8:(value.wallsList.length <=90)? height*9:(value.wallsList.length <=100)? height*10:20000,
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 2),
             child: MasonryGridView.builder(
@@ -71,10 +80,10 @@ List<String> images=[
                     child: Image.network(value.wallsList[index].title.toString(),fit: BoxFit.cover,),),),
               );}),
           ),
-        ):Container(
+        ):const SizedBox(
           // color: Colors.red,
           height: 100,
-          child: const Center(
+          child: Center(
             child: CircularProgressIndicator(),
           ),
         );
