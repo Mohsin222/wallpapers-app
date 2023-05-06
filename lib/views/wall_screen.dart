@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:provider/provider.dart';
+import 'package:wallpapers_app/components/alert_dialog1.dart';
 import 'package:wallpapers_app/provider/scroll_provider.dart';
 
 import 'package:wallpapers_app/provider/wallpapers_controller.dart';
@@ -55,7 +56,8 @@ SafeArea(
         // controller: scrollController,
       
       
-      
+      mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.start,
       
               children: [
       
@@ -68,10 +70,19 @@ SafeArea(
             decoration: InputDecoration(
       
             suffixIcon: IconButton(icon:const Icon(Icons.search),onPressed: (){
-      
+
+              if(textEditingController.text.isEmpty && textEditingController.text==''){
+  showDialog(context: context, builder: (index){
+    return AlertDialog1(text: 'Enter Some Value');
+  });
+
+}else{
+  
               final wallprovider = Provider.of<WallpapersProvider>(context,listen: false);
       
               wallprovider.fetchWalls(textEditingController.text.trim());
+}
+      
       
             },),
       
@@ -105,7 +116,7 @@ SafeArea(
       
               padding:const EdgeInsets.symmetric(horizontal: 10),
       
-              child: Text('CATEGORIES',style: Theme.of(context).textTheme.headlineMedium,),
+              child: Text('CATEGORIES',style: Theme.of(context).textTheme.headlineMedium!.copyWith(fontWeight: FontWeight.bold,letterSpacing: 4),),
       
              ),
       

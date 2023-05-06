@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:wallpapers_app/provider/scroll_provider.dart';
 import 'package:wallpapers_app/provider/wallpapers_controller.dart';
 import 'package:wallpapers_app/utils/routes.dart';
+import 'package:wallpapers_app/views/splash_screen.dart';
 
 
 import 'package:wallpapers_app/views/wall_screen.dart';
@@ -23,6 +24,7 @@ class MyApp extends StatelessWidget {
            ChangeNotifierProvider(  create: (_) => ScrollProvider(),),
       ],
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
         theme: ThemeData(
      
@@ -34,7 +36,7 @@ class MyApp extends StatelessWidget {
 
           initialRoute:  Routes.wallScreenRoute,
   onGenerateRoute: Routes.generateRoute,
-        home: const WallScreen(),
+        home: const SplashScreen(),
       ),
     );
   }

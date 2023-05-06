@@ -76,7 +76,7 @@ void add(List a){
                   borderRadius: BorderRadius.circular(20),
                   child: Hero(
                     tag: 'alpha'+index.toString(),
-                    child: InkWell(
+                    child: GestureDetector(
                       onTap: (){
                                    Navigator.push(context, MaterialPageRoute(builder: (context)=>WallDetailScreen(url: value.wallsList[index].title.toString(), index: index,)));
                                   

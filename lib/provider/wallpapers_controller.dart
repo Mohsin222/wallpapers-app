@@ -54,6 +54,8 @@ bool downloadLoading=false;
    notifyListeners();
   
     }).catchError((err){
+      downloadLoading=false;
+      notifyListeners();
       toastMessage(context: context, text: 'Error in download');
       print(err);
     });

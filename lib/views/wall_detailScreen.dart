@@ -18,30 +18,39 @@ class WallDetailScreen extends StatelessWidget {
     return  Consumer<WallpapersProvider>(
       builder: (context,value,child) {
         return Scaffold(
-          floatingActionButton: FloatingActionButton(onPressed: ()async{
+          appBar: AppBar(
+            leading: BackButton(onPressed: ()=>Navigator.pop(context)),
+          ),
+          floatingActionButton: FloatingActionButton(
+            backgroundColor: Colors.black54,
+            onPressed: ()async{
        
             value.saveNetworkImage(imagePath :url,context: context);
-          },child:value.downloadLoading==false ? const Icon(Icons.download):const CircularProgressIndicator(),),
-          body: SafeArea(
-            child: Container(
-              // decoration: BoxDecoration(image: DecorationImage(image: NetworkImage(url),fit: BoxFit.contain)),
-            
-            child: Column(
-              children: [Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  IconButton(onPressed: ()=>Navigator.pop(context), icon:const Icon(Icons.arrow_back,size: 35,))
-                ],
-
+          },child:value.downloadLoading==false ? const Icon(Icons.download,color: Colors.white,): CircularProgressIndicator(color:Colors.white,),),
+          body: Container(
+            height: MediaQuery.of(context).size.height,
+          //  decoration: BoxDecoration(image: DecorationImage(image: NetworkImage(url),fit: BoxFit.contain)),
+          
+          child: Column(
+            children: [
+              // SizedBox(height: 60,),
+            //   Row(
+            //   mainAxisAlignment: MainAxisAlignment.start,
+            //   children: [
+            //     IconButton(onPressed: ()=>Navigator.pop(context), icon:const Icon(Icons.arrow_back,size: 35,))
+            //   ],
+          
+            // ),
+            Expanded(
+              child: Hero(
+                tag: 'alpha'+index.toString(),
+                child: Image.network(url,fit: BoxFit.cover,),
               ),
-              Hero(
-                       tag: 'alpha'+index.toString(),
-                child: Image.network(url,fit: BoxFit.cover,)),
-              
-              ],
-              
             ),
-            ),
+            
+            ],
+            
+          ),
           ),
         );
       }

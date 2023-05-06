@@ -16,52 +16,52 @@ class PopularCategoryWidget extends StatelessWidget {
      List categoryList =[
       {
 "title": "Wallpapers",
-"image":'https://plus.unsplash.com/premium_photo-1672576784701-b960e7cb37d6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60',
+"image":'https://images.unsplash.com/photo-1559291001-693fb9166cba?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mjl8fHdhbGxwYXBlcnN8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60',
   
     },
           {
-"title": "Travel",
-"image":'https://images.unsplash.com/photo-1678750267527-4c3f55e32149?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyOXx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60',
+"title": "Culture",
+"image":'https://images.unsplash.com/photo-1679301429781-dd27a5880099?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDE1fGJEbzQ4Y1Vod25ZfHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60',
     },
     {
 "title": "Experimental",
-"image":'https://images.unsplash.com/photo-1678786202821-cd5cd3fa3f3a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw0Nnx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60',
+"image":'https://images.unsplash.com/photo-1681944364586-6b31cc3ae47c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDl8cVBZc0R6dkpPWWN8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60',
 
 
     },
    {
-     "title": "Animals",
-    "image":'https://images.unsplash.com/photo-1678737176644-99fdb97795cf?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw1M3x8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60',
+     "title": "Athletics",
+    "image":'https://images.unsplash.com/photo-1681491313239-9d0033095fde?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDE5fEJuLURqcmNCcndvfHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60',
 
    },
     {
      "title": "Animals",
-    "image":'https://images.unsplash.com/photo-1678711268282-8271e997afa1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw3M3x8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60',
+    "image":'https://images.unsplash.com/photo-1564349683136-77e08dba1ef7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8YW5pbWFsc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60',
 
    },
     {
      "title":       "Patterns",
-    "image":'https://images.unsplash.com/photo-1678737176644-99fdb97795cf?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw1M3x8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60',
+    "image":'https://images.unsplash.com/photo-1621423028668-d5f9555ebea3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8UGF0dGVybnN8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60',
 
    },
     {
      "title":"People",
-    "image": 'https://images.unsplash.com/photo-1599447472329-449d9e262420?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDR8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60',
+    "image": 'https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8cGVvcGxlc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60',
 
    },
     {
      "title":    "travel",
-    "image":'https://plus.unsplash.com/premium_photo-1663039931695-c5fc4a2e0b41?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyMTB8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60',
+    "image":'https://images.unsplash.com/photo-1534534573898-db5148bc8b0c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzN8fHRyYXZlbHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60',
 
    },
      {
-     "title": "hot",
-    "image":'https://images.unsplash.com/photo-1678737176644-99fdb97795cf?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw1M3x8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60',
+     "title": "Photography",
+    "image":'https://images.unsplash.com/photo-1568819107248-c5ebc8b62fad?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fGNhbWVyYXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60',
 
    },
      {
      "title":    "gym",
-    "image":'https://images.unsplash.com/photo-1678540939206-e32d7ff93474?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyNTV8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60',
+    "image":'https://images.unsplash.com/photo-1623874106686-5be2b325c8f1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NTF8fGd5bXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60',
 
    },
      {
@@ -96,7 +96,7 @@ class PopularCategoryWidget extends StatelessWidget {
                   padding:const EdgeInsets.all(10),
                   margin:const EdgeInsets.symmetric(vertical: 4,horizontal: 7),
                       
-                      decoration: BoxDecoration(color: Colors.red[400],
+                      decoration: BoxDecoration(color: Colors.black54,
                       
                       borderRadius: BorderRadius.circular(20),
                       image: DecorationImage(image: NetworkImage(categoryList[index]['image']),fit: BoxFit.cover),
@@ -108,7 +108,9 @@ class PopularCategoryWidget extends StatelessWidget {
                  
                       // child: Text(categoryText[index],textAlign: TextAlign.center,style: Theme.of(context).textTheme.bodySmall,),
                  
-                 child: Text(categoryList[index]['title'].toString()),
+                 child: Text(categoryList[index]['title'].toString(),
+                 style: TextStyle(fontSize: 16),
+                 ),
                     ),
               );
              }),
