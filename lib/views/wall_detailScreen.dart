@@ -6,9 +6,11 @@ import 'package:wallpapers_app/provider/wallpapers_controller.dart';
 
 class WallDetailScreen extends StatelessWidget {
  final String url;
+ final int index;
   const WallDetailScreen({
     Key? key,
     required this.url,
+    required this.index,
   }) : super(key: key);
 
   @override
@@ -21,7 +23,8 @@ class WallDetailScreen extends StatelessWidget {
             value.saveNetworkImage(imagePath :url,context: context);
           },child:value.downloadLoading==false ? const Icon(Icons.download):const CircularProgressIndicator(),),
           body: SafeArea(
-            child: Container(decoration: BoxDecoration(image: DecorationImage(image: NetworkImage(url),fit: BoxFit.contain)),
+            child: Container(
+              // decoration: BoxDecoration(image: DecorationImage(image: NetworkImage(url),fit: BoxFit.contain)),
             
             child: Column(
               children: [Row(
@@ -29,7 +32,14 @@ class WallDetailScreen extends StatelessWidget {
                 children: [
                   IconButton(onPressed: ()=>Navigator.pop(context), icon:const Icon(Icons.arrow_back,size: 35,))
                 ],
-              )],
+
+              ),
+              Hero(
+                       tag: 'alpha'+index.toString(),
+                child: Image.network(url,fit: BoxFit.cover,)),
+              
+              ],
+              
             ),
             ),
           ),

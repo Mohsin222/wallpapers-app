@@ -7,6 +7,7 @@ import 'package:wallpapers_app/views/wall_detailScreen.dart';
 
 import '../models/wallpaper_model.dart';
 import '../provider/scroll_provider.dart';
+import '../utils/routes.dart';
 
 class WallGrid extends StatelessWidget {
 
@@ -73,11 +74,17 @@ void add(List a){
             padding: const EdgeInsets.all(2),
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(20),
-                  child: InkWell(
-                    onTap: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>WallDetailScreen(url: value.wallsList[index].title.toString())));
-                    },
-                    child: Image.network(value.wallsList[index].title.toString(),fit: BoxFit.cover,),),),
+                  child: Hero(
+                    tag: 'alpha'+index.toString(),
+                    child: InkWell(
+                      onTap: (){
+                                   Navigator.push(context, MaterialPageRoute(builder: (context)=>WallDetailScreen(url: value.wallsList[index].title.toString(), index: index,)));
+                                  
+                                  // Navigator.pushNamed(context, Routes.detailScreenRoute,arguments:value.wallsList[index].title.toString());
+                      },
+                      child: Image.network(value.wallsList[index].title.toString(),fit: BoxFit.cover,),
+                    ),
+                  ),),
               );}),
           ),
         ):const SizedBox(

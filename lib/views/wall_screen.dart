@@ -45,94 +45,99 @@ class _WallScreenState extends State<WallScreen> {
       // },icon:const Icon(Icons.add),),),
 body: 
 SafeArea(
-  child:   ListView(
-
-    // controller: scrollController,
-
-  
-     primary: false,
-  
-     shrinkWrap: true,
-  
-          children: [
-  
-            Padding(padding:const EdgeInsets.all(10),
-  
-        child: TextFormField(
-  
-        controller: textEditingController,
-  
-        decoration: InputDecoration(
-  
-        suffixIcon: IconButton(icon:const Icon(Icons.search),onPressed: (){
-  
-          final wallprovider = Provider.of<WallpapersProvider>(context,listen: false);
-  
-          wallprovider.fetchWalls(textEditingController.text.trim());
-  
-        },),
-  
-            hintText:'Search',
-  
-          border: OutlineInputBorder(borderRadius: BorderRadius.circular(15)),
-  
-              focusedBorder: OutlineInputBorder(
-  
-                borderRadius: BorderRadius.circular(15),
-  
-              borderSide:const BorderSide(color: Colors.greenAccent, width: 1.0,),
-  
-          ),
-  
-        ),
-  
-        ),
-  
-        ),
-  
-       
-  
-       
-  
-     const    SizedBox(height: 10,),
-  
-       
-  
-         Container(
-  
-          padding:const EdgeInsets.symmetric(horizontal: 10),
-  
-          child: Text('CATEGORIES',style: Theme.of(context).textTheme.headlineMedium,),
-  
-         ),
-  
-        gapBetweenWidget,
-  
-       
-  
-      PopularCategoryWidget(controller:scrollController),
-  
-       gapBetweenWidget,
-  
-       Container(
-  
-          padding:const EdgeInsets.symmetric(horizontal: 10),
-  
-          child: Text('POPULAR',style: Theme.of(context).textTheme.headlineSmall,),
-  
-         ),
-  
-          gapBetweenWidget,
-  
-       
-  
-      //  WallGrid(),
-  
-          ],
-  
-        
-  
-       ),
+  child:   SizedBox(
+    height: MediaQuery.of(context).size.height,
+    width: MediaQuery.of(context).size.width,
+    child: SingleChildScrollView(
+      physics:const BouncingScrollPhysics(),
+      child: Column(
+      
+        // controller: scrollController,
+      
+      
+      
+      
+              children: [
+      
+                Padding(padding:const EdgeInsets.all(10),
+      
+            child: TextFormField(
+      
+            controller: textEditingController,
+      
+            decoration: InputDecoration(
+      
+            suffixIcon: IconButton(icon:const Icon(Icons.search),onPressed: (){
+      
+              final wallprovider = Provider.of<WallpapersProvider>(context,listen: false);
+      
+              wallprovider.fetchWalls(textEditingController.text.trim());
+      
+            },),
+      
+                hintText:'Search',
+      
+              border: OutlineInputBorder(borderRadius: BorderRadius.circular(15)),
+      
+                  focusedBorder: OutlineInputBorder(
+      
+                    borderRadius: BorderRadius.circular(15),
+      
+                  borderSide:const BorderSide(color: Colors.greenAccent, width: 1.0,),
+      
+              ),
+      
+            ),
+      
+            ),
+      
+            ),
+      
+           
+      
+           
+      
+         const    SizedBox(height: 10,),
+      
+           
+      
+             Container(
+      
+              padding:const EdgeInsets.symmetric(horizontal: 10),
+      
+              child: Text('CATEGORIES',style: Theme.of(context).textTheme.headlineMedium,),
+      
+             ),
+      
+            gapBetweenWidget,
+      
+           
+      
+          PopularCategoryWidget(controller:scrollController),
+      
+           gapBetweenWidget,
+      
+           Container(
+      
+              padding:const EdgeInsets.symmetric(horizontal: 10),
+      
+              child: Text('POPULAR',style: Theme.of(context).textTheme.headlineSmall,),
+      
+             ),
+      
+              gapBetweenWidget,
+      
+           
+      
+           WallGrid(),
+      
+              ],
+      
+            
+      
+           ),
+    ),
+  ),
 ),
 // floatingActionButton: Consumer<ScrollProvider>(builder: (context, value, child){
 //   return value.showBackToTopButton ==false ? Container():FloatingActionButton(onPressed: ()=>value.scrollToTop(),child:const Icon(Icons.arrow_upward),);

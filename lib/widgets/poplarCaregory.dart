@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
@@ -11,29 +12,6 @@ class PopularCategoryWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    List<String> categoryText=[
-      "Wallpapers",
-      "Travel",
-      "Experimental",
-     
-      "Patterns"
-      "People",
-      "travel",
-      "hot",
-      "gym",
-      "vication"
-    ];
-    List<String> categoryImages=[
-      
-  
-  
-  'https://images.unsplash.com/photo-1678711268282-8271e997afa1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw3M3x8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60',
-  'https://images.unsplash.com/photo-1599447472329-449d9e262420?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDR8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60',
-'https://plus.unsplash.com/premium_photo-1663039931695-c5fc4a2e0b41?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyMTB8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60',
-'https://images.unsplash.com/photo-1534872724459-3a23213491fc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDR8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60',
-'https://images.unsplash.com/photo-1678540939206-e32d7ff93474?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyNTV8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60',
-'https://images.unsplash.com/photo-1678510131367-df8d6c61b17e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyNTd8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60',
-    ];
  
      List categoryList =[
       {
@@ -55,22 +33,60 @@ class PopularCategoryWidget extends StatelessWidget {
      "title": "Animals",
     "image":'https://images.unsplash.com/photo-1678737176644-99fdb97795cf?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw1M3x8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60',
 
-   }
+   },
+    {
+     "title": "Animals",
+    "image":'https://images.unsplash.com/photo-1678711268282-8271e997afa1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw3M3x8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60',
+
+   },
+    {
+     "title":       "Patterns",
+    "image":'https://images.unsplash.com/photo-1678737176644-99fdb97795cf?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw1M3x8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60',
+
+   },
+    {
+     "title":"People",
+    "image": 'https://images.unsplash.com/photo-1599447472329-449d9e262420?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDR8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60',
+
+   },
+    {
+     "title":    "travel",
+    "image":'https://plus.unsplash.com/premium_photo-1663039931695-c5fc4a2e0b41?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyMTB8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60',
+
+   },
+     {
+     "title": "hot",
+    "image":'https://images.unsplash.com/photo-1678737176644-99fdb97795cf?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw1M3x8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60',
+
+   },
+     {
+     "title":    "gym",
+    "image":'https://images.unsplash.com/photo-1678540939206-e32d7ff93474?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyNTV8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60',
+
+   },
+     {
+     "title":     "vication",
+    "image":'https://images.unsplash.com/photo-1678510131367-df8d6c61b17e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyNTd8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60',
+
+   },
     ];
     return SizedBox(
-      height: 90,
+      height: 110,
       width: MediaQuery.of(context).size.width,
       child: ListView.builder(
+        
         // controller: controller,
-        addAutomaticKeepAlives: true,
+      dragStartBehavior: DragStartBehavior.down,
+      primary: true,
               scrollDirection: Axis.horizontal,
               itemCount: categoryList.length,
+              
               itemBuilder: (context,index){
               return      GestureDetector(
                 behavior: HitTestBehavior.translucent,
                 onTap: (){
                   final wallpaperProvider= Provider.of<WallpapersProvider>(context,listen:false);
-                  wallpaperProvider.fetchWalls(categoryText[index]);
+                  wallpaperProvider.fetchWalls(categoryList[index]['title']);
                 },
                 child: Container(
                   width: 100,
